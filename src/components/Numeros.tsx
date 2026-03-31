@@ -74,7 +74,7 @@ export default function Numeros() {
   }, [])
 
   return (
-    <section class="w-full py-20 md:py-28 relative overflow-hidden">
+    <section class="w-full py-14 md:py-20 lg:py-28 relative overflow-hidden">
       {/* Background grid */}
       <div class="absolute inset-0 numeros-grid opacity-5 pointer-events-none" />
 
