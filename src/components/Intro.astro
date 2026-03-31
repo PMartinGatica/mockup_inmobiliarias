@@ -1,0 +1,74 @@
+---
+---
+
+<section
+  id="nosotros"
+  class="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32"
+>
+  <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <!-- Left: text block -->
+    <div class="flex flex-col gap-6">
+      <span class="text-primary font-barlow font-600 tracking-[0.3em] text-xs uppercase">
+        El Estudio
+      </span>
+      <h2 class="section-title text-4xl md:text-5xl lg:text-6xl leading-tight">
+        Construimos el<br />
+        <span class="text-primary">sur del mundo</span>
+      </h2>
+      <p class="text-white/70 font-barlow text-base md:text-lg leading-relaxed max-w-lg">
+        <strong>9410 Arquitectura</strong> es un estudio con sede en Ushuaia, Tierra del Fuego.
+        Liderado por el Arq. Carlos Escudero, nos especializamos en proyectos integrales:
+        desde el diseño inicial hasta la ejecución en obra.
+      </p>
+      <p class="text-white/50 font-barlow text-sm md:text-base leading-relaxed max-w-lg">
+        Cada proyecto nace de un profundo entendimiento del terreno, el clima y las necesidades del cliente,
+        buscando soluciones arquitectónicas que dialogen con el paisaje patagónico.
+      </p>
+      <div class="flex gap-6 mt-2">
+        <div class="flex flex-col gap-1">
+          <span class="font-bebas text-3xl text-primary">Diseño</span>
+          <span class="text-white/40 text-xs font-barlow tracking-wider uppercase">Arquitectónico</span>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div class="flex flex-col gap-1">
+          <span class="font-bebas text-3xl text-primary">Dirección</span>
+          <span class="text-white/40 text-xs font-barlow tracking-wider uppercase">De Obra</span>
+        </div>
+        <div class="w-px bg-white/10"></div>
+        <div class="flex flex-col gap-1">
+          <span class="font-bebas text-3xl text-primary">Desarrollo</span>
+          <span class="text-white/40 text-xs font-barlow tracking-wider uppercase">Inmobiliario</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: image block with frame -->
+    <div class="relative">
+      <div class="relative overflow-hidden rounded-lg aspect-[4/3] bg-surface">
+        <img
+          src="/images/intro-obra.jpg"
+          alt="Obra 9410 Arquitectura"
+          class="w-full h-full object-cover opacity-80"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('no-image')"
+        />
+        <!-- Fallback gradient if no image -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#1C1C1C] to-[#2A2A2A] flex items-center justify-center opacity-0 no-image-fallback"
+        >
+          <span class="font-bebas text-6xl text-white/10">9410</span>
+        </div>
+      </div>
+      <!-- Decorative corner accent -->
+      <div class="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-primary/40 rounded-br-lg"></div>
+      <div class="absolute -top-4 -left-4 w-24 h-24 border-l-2 border-t-2 border-white/10 rounded-tl-lg"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .no-image + .no-image-fallback,
+  .no-image .no-image-fallback {
+    opacity: 1 !important;
+  }
+</style>

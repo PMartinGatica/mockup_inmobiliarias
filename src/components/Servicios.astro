@@ -1,0 +1,107 @@
+---
+import BentoItem from '@/components/BentoItem.astro'
+
+const servicios = [
+  {
+    title: 'Desarrollo Inmobiliario',
+    subtitle: 'Proyectos integrales',
+    content: 'Desde la concepción hasta la comercialización. Creamos propuestas que integran diseño, funcionalidad y rentabilidad.',
+    bgColor: '#1A1A1A',
+    dataSrc: '/images/servicios-desarrollo.jpg',
+    col: 'col-span-10 lg:col-span-4',
+  },
+  {
+    title: 'Dirección de Obra',
+    subtitle: 'Gestión y supervisión',
+    content: 'Coordinamos cada etapa constructiva asegurando calidad, tiempos y presupuesto en obras de cualquier escala.',
+    bgColor: '#181818',
+    dataSrc: '/images/servicios-obra.jpg',
+    col: 'col-span-10 lg:col-span-6',
+  },
+  {
+    title: 'Proyectos Residenciales',
+    subtitle: 'Viviendas a medida',
+    content: 'Diseñamos hogares que respetan el paisaje patagónico y optimizan cada metro cuadrado para la vida en el sur.',
+    bgColor: '#161616',
+    dataSrc: '/images/servicios-residencial.jpg',
+    col: 'col-span-10 lg:col-span-6',
+  },
+  {
+    title: 'Asesoría Técnica',
+    subtitle: 'Consultoría especializada',
+    content: 'Acompañamos tu proyecto en permisos, visaciones municipales, cálculo estructural y documentación técnica.',
+    bgColor: '#1C1C1C',
+    dataSrc: '/images/servicios-asesoria.jpg',
+    col: 'col-span-10 lg:col-span-4',
+  },
+]
+---
+
+<section
+  id="servicios"
+  class="w-full py-16 md:py-24"
+>
+  <!-- Section header -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mb-12">
+    <span class="text-primary font-barlow font-600 tracking-[0.3em] text-xs uppercase">
+      Qué hacemos
+    </span>
+    <h2 class="section-title text-4xl md:text-5xl lg:text-6xl mt-2">
+      Nuestros <span class="text-primary">Servicios</span>
+    </h2>
+  </div>
+
+  <!-- Bento grid — mismo patrón que esland -->
+  <div
+    class="w-full max-w-7xl
+    grid lg:grid-cols-10 auto-rows-[28rem] gap-4
+    mx-auto px-6 md:px-12 lg:px-20"
+  >
+    {servicios.map((servicio) => (
+      <BentoItem
+        class={servicio.col}
+        title={servicio.title}
+        subtitle={servicio.subtitle}
+      >
+        <div
+          slot="image"
+          class="background transition-scale absolute bottom-0 left-0 top-0
+            -z-10 h-full w-full
+            bg-cover bg-center bg-no-repeat opacity-80 bg-blend-luminosity
+            duration-1000 ease-in-out group-hover:scale-110"
+          style={`background-color: ${servicio.bgColor};`}
+          data-src={servicio.dataSrc}
+        ></div>
+        <p slot="content" class="text-white/70 font-barlow text-sm md:text-base leading-relaxed max-w-sm">
+          {servicio.content}
+        </p>
+      </BentoItem>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const backgrounds = document.querySelectorAll('.background') as NodeListOf<HTMLElement>
+
+    if (window.IntersectionObserver == null) {
+      backgrounds.forEach((bkg) => {
+        bkg.style.backgroundImage = `url('${bkg.dataset.src}')`
+      })
+      return
+    }
+
+    function handleIntersection(entries: IntersectionObserverEntry[]) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement
+          target.style.backgroundImage = `url('${target.dataset.src}')`
+          observer.unobserve(target)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, { rootMargin: '100px' })
+    backgrounds.forEach((bkg) => observer.observe(bkg))
+  })
+</script>

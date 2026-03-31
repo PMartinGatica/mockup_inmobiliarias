@@ -1,0 +1,18 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/Hero.astro'
+import Intro from '@/components/Intro.astro'
+import Numeros from '@/components/Numeros.tsx'
+import Servicios from '@/components/Servicios.astro'
+import Proyectos from '@/components/Proyectos.astro'
+import Contacto from '@/components/Contacto.astro'
+---
+
+<Layout>
+  <Hero />
+  <Intro />
+  <Numeros client:visible />
+  <Servicios />
+  <Proyectos />
+  <Contacto />
+</Layout>

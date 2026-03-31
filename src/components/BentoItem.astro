@@ -1,0 +1,48 @@
+---
+interface Props {
+  class?: string
+  title: string
+  subtitle?: string
+  icon?: string
+}
+
+const { title, subtitle, icon } = Astro.props
+---
+
+<article
+  class={`
+    ${Astro.props.class ?? ''}
+    col-span-5
+    relative rounded-xl
+    border border-white/[0.06]
+    shadow-inner shadow-white/5
+    overflow-hidden
+    group
+    cursor-default
+  `}
+>
+  <!-- Gradient overlay (bottom dark fade) -->
+  <div
+    class="absolute bottom-0 top-0 z-10 h-full w-full
+    bg-gradient-to-b from-transparent from-30% via-[#0D0D0D]/50 to-[#0D0D0D]/85"
+  ></div>
+
+  <!-- Background image slot -->
+  <slot name="image" />
+
+  <!-- Content -->
+  <div
+    class="relative z-20 flex h-full select-none flex-col justify-end gap-2 p-5 md:p-7"
+  >
+    {icon && (
+      <span class="text-primary text-2xl mb-1">{icon}</span>
+    )}
+    <h3 class="section-title text-balance text-2xl md:text-3xl font-bebas uppercase text-white group-hover:text-primary transition-colors duration-300">
+      {title}
+    </h3>
+    {subtitle && (
+      <p class="text-primary/80 font-barlow text-sm font-500 -mt-1">{subtitle}</p>
+    )}
+    <slot name="content" />
+  </div>
+</article>

@@ -1,0 +1,103 @@
+---
+const WA_LINK = 'https://api.whatsapp.com/send?phone=542901300925&text=Hola%209410%20Arq!%20Quisiera%20consultar%20por...'
+---
+
+<section
+  class="relative h-dvh w-full flex items-center justify-center overflow-hidden"
+  id="inicio"
+>
+  <!-- Background: dark gradient + architectural grid + image overlay -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/images/hero-bg.jpg');"
+  ></div>
+
+  <!-- Dark overlay with gradient -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/60 via-[#0D0D0D]/40 to-[#0D0D0D]/90"
+  ></div>
+
+  <!-- Architectural grid overlay (blueprint aesthetic) -->
+  <div class="absolute inset-0 hero-grid opacity-10 pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 flex flex-col items-center gap-6 md:gap-8">
+    <!-- Pre-tag -->
+    <p
+      class="text-primary font-barlow font-600 tracking-[0.3em] text-xs md:text-sm uppercase
+             animate-fade-down animate-duration-700 animate-ease-in-out"
+    >
+      Ushuaia · Tierra del Fuego
+    </p>
+
+    <!-- Main title: "9410" letter by letter -->
+    <h1 class="font-bebas text-white leading-none select-none">
+      <span class="flex items-center justify-center gap-3 md:gap-5 lg:gap-6
+                   text-[5rem] md:text-[9rem] lg:text-[13rem] xl:text-[16rem]">
+        <span class="animate-fade-up animate-duration-700 animate-delay-100 animate-ease-in-out inline-block">9</span>
+        <span class="animate-fade-up animate-duration-700 animate-delay-200 animate-ease-in-out inline-block">4</span>
+        <span class="animate-fade-up animate-duration-700 animate-delay-300 animate-ease-in-out inline-block">1</span>
+        <span class="animate-fade-up animate-duration-700 animate-delay-[400ms] animate-ease-in-out inline-block text-primary">0</span>
+      </span>
+
+      <span
+        class="block text-2xl md:text-4xl lg:text-5xl tracking-[0.5em] text-white/80
+               animate-fade-up animate-duration-700 animate-delay-500 animate-ease-in-out"
+      >
+        ARQUITECTURA
+      </span>
+    </h1>
+
+    <!-- Divider line -->
+    <div
+      class="w-16 h-px bg-primary animate-fade-up animate-duration-700 animate-delay-[600ms] animate-ease-in-out"
+    ></div>
+
+    <!-- Subtitle -->
+    <p
+      class="text-white/60 font-barlow text-base md:text-lg max-w-md
+             animate-fade-up animate-duration-700 animate-delay-700 animate-ease-in-out"
+    >
+      Diseño · Construcción · Desarrollo Inmobiliario
+    </p>
+
+    <!-- CTAs -->
+    <div
+      class="flex flex-col sm:flex-row gap-4 mt-2
+             animate-fade-up animate-duration-700 animate-delay-[800ms] animate-ease-in-out"
+    >
+      <a
+        href="#proyectos"
+        class="btn-primary bg-primary text-white font-barlow font-600 tracking-wider uppercase text-sm px-8 py-3 rounded-full hover:bg-primary-light transition-colors duration-300"
+      >
+        Ver Proyectos
+      </a>
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary border border-white/20 text-white font-barlow font-600 tracking-wider uppercase text-sm px-8 py-3 rounded-full hover:border-primary/60 hover:text-primary-light transition-all duration-300"
+      >
+        Contactar
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2
+           animate-fade-up animate-duration-700 animate-delay-[1000ms]"
+  >
+    <span class="text-white/30 font-barlow text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/20 to-transparent animate-bounce"></div>
+  </div>
+</section>
+
+<style>
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(200, 131, 26, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 131, 26, 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+</style>

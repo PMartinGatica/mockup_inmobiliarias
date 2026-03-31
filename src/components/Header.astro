@@ -1,0 +1,71 @@
+---
+import MenuIcon from '@/components/icons/Menu.astro'
+import CloseIcon from '@/components/icons/Close.astro'
+import WhatsappIcon from '@/components/icons/Whatsapp.astro'
+
+const WA_LINK = 'https://api.whatsapp.com/send?phone=542901300925&text=Hola%209410%20Arq!%20Quisiera%20consultar%20por...'
+
+const navLinks = [
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#nosotros', label: 'Nosotros' },
+  { href: '#contacto', label: 'Contacto' },
+]
+---
+
+<header id="header-nav" class="fixed top-0 w-full px-6 py-4 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+    <!-- Logo -->
+    <a href="#" aria-label="9410 Arquitectura — Inicio" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-full overflow-hidden bg-[#C8831A] flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+        <img
+          src="/images/logo.jpg"
+          alt="9410 ARQ"
+          width="36"
+          height="36"
+          class="w-full h-full object-cover"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <span
+        class="font-bebas text-xl tracking-widest text-white transition-colors duration-300 group-hover:text-primary"
+      >
+        9410 <span class="text-primary">ARQ</span>
+      </span>
+    </a>
+
+    <!-- Nav desktop + mobile -->
+    <nav
+      id="header-menu"
+      class="fixed w-full h-dvh inset-0 bg-[#0D0D0D]/95 flex flex-col items-center justify-center gap-10 -translate-y-full transition-transform duration-300 target:translate-y-0
+             md:static md:h-auto md:bg-transparent md:flex-row md:translate-y-0 md:gap-8"
+    >
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text__glowing text-white/80 font-barlow font-500 tracking-wider uppercase text-sm md:text-xs lg:text-sm"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary flex items-center gap-2 bg-primary text-white font-barlow font-600 text-sm px-5 py-2.5 rounded-full uppercase tracking-wider hover:bg-primary-light"
+      >
+        <WhatsappIcon />
+        Consultanos
+      </a>
+      <!-- Close button (mobile only) -->
+      <a href="#header-nav" class="md:hidden absolute top-6 right-6 text-white/60 hover:text-white">
+        <CloseIcon />
+      </a>
+    </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <a href="#header-menu" class="md:hidden text-white/80 hover:text-white transition-colors">
+      <MenuIcon />
+    </a>
+  </div>
+</header>

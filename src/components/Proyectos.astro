@@ -1,0 +1,143 @@
+---
+const proyectos = [
+  {
+    id: 'skyline',
+    title: 'Edificio Skyline',
+    tipo: 'Desarrollo Inmobiliario',
+    descripcion: 'Un desarrollo moderno que redefine la experiencia de vida en el extremo sur. Apartamentos de diseño contemporáneo con vistas panorámicas.',
+    tags: ['Residencial', 'Multi-planta', 'Ushuaia'],
+    imagen: '/images/proyecto-skyline.jpg',
+    año: '2024',
+  },
+  {
+    id: 'fuenzalida',
+    title: 'Vivienda Fuenzalida',
+    tipo: 'Proyecto Residencial',
+    descripcion: 'Vivienda unifamiliar de 138 m² ubicada en el barrio Barrancas del Pipo. Diseño que optimiza los espacios interiores respetando el entorno natural.',
+    tags: ['138 m²', 'Unifamiliar', 'Barrancas del Pipo'],
+    imagen: '/images/proyecto-fuenzalida.jpg',
+    año: '2023',
+  },
+  {
+    id: 'arias',
+    title: 'Auto Arias',
+    tipo: 'Obra Comercial',
+    descripcion: 'Participación integral en el proceso de obra para esta firma local. Desde la planificación técnica hasta la supervisión de ejecución.',
+    tags: ['Comercial', 'Dirección de Obra', 'Ushuaia'],
+    imagen: '/images/proyecto-arias.jpg',
+    año: '2023',
+  },
+]
+---
+
+<section
+  id="proyectos"
+  class="w-full py-16 md:py-24 relative"
+>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <!-- Section header -->
+    <div class="flex items-end justify-between mb-12 gap-6">
+      <div>
+        <span class="text-primary font-barlow font-600 tracking-[0.3em] text-xs uppercase">
+          Portfolio
+        </span>
+        <h2 class="section-title text-4xl md:text-5xl lg:text-6xl mt-2">
+          Proyectos <span class="text-primary">Destacados</span>
+        </h2>
+      </div>
+      <a
+        href="https://www.instagram.com/9410arq"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text__glowing text-white/40 font-barlow text-sm tracking-wider uppercase hover:text-primary hidden md:flex items-center gap-2 shrink-0"
+      >
+        Ver más en Instagram →
+      </a>
+    </div>
+
+    <!-- Projects grid with view-timeline animations (técnica esland Galeria.css) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="proyectos-grid">
+      {proyectos.map((proyecto, index) => (
+        <article
+          class="proyecto-card group relative overflow-hidden rounded-xl bg-surface cursor-pointer"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Image -->
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div
+              class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75 transition-transform duration-700 ease-in-out group-hover:scale-105"
+              style={`background-image: url('${proyecto.imagen}'); background-color: #1A1A1A;`}
+            ></div>
+            <!-- Year badge -->
+            <span
+              class="absolute top-4 right-4 bg-primary/90 text-white font-bebas text-sm px-3 py-1 rounded tracking-wider"
+            >
+              {proyecto.año}
+            </span>
+            <!-- Type badge -->
+            <span
+              class="absolute bottom-4 left-4 bg-[#0D0D0D]/80 backdrop-blur-sm text-white/70 font-barlow text-xs px-3 py-1 rounded-full border border-white/10 tracking-wider uppercase"
+            >
+              {proyecto.tipo}
+            </span>
+          </div>
+
+          <!-- Info -->
+          <div class="p-5 flex flex-col gap-3">
+            <h3 class="font-bebas text-2xl text-white group-hover:text-primary transition-colors duration-300 tracking-wide">
+              {proyecto.title}
+            </h3>
+            <p class="text-white/55 font-barlow text-sm leading-relaxed line-clamp-3">
+              {proyecto.descripcion}
+            </p>
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-1">
+              {proyecto.tags.map((tag) => (
+                <span class="text-primary/70 font-barlow text-xs tracking-wider border border-primary/20 px-2 py-0.5 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Hover bottom border -->
+          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full"></div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Mobile: ver en Instagram -->
+    <div class="flex justify-center mt-10 md:hidden">
+      <a
+        href="https://www.instagram.com/9410arq"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text__glowing text-white/40 font-barlow text-sm tracking-wider uppercase flex items-center gap-2"
+      >
+        Ver más en Instagram →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* View timeline animation — técnica de Galeria.css de esland */
+  #proyectos-grid .proyecto-card {
+    animation: proyecto-fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
+  }
+
+  @keyframes proyecto-fade-up {
+    0% {
+      opacity: 0;
+      translate: 0 40px;
+      scale: 0.96;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+    }
+  }
+</style>
